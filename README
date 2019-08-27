@@ -1,0 +1,27 @@
+Simple scripts to allow C/C++ (and maybe other things) to act like bash scripts
+
+Al Williams -- Hackaday August, 2019
+Public Domain
+
+Installation:
+Put all the cscript_* files into a directory that is on your path that source (or . if you prefer) can find.
+I put mine in /usr/local/bin but that requires you are root. If you have your own ~/bin directory you won't
+need root, but it does need to be on your path.
+
+Usage:
+See example.c
+
+The idea is to put this boilerplate in front of your C/C++ program:
+
+#!/usr/bin/env bash
+#if 0
+source cscript_XXX
+#endif
+
+Where XXX is one of the items below.
+
+There are three cscript_ files although you can make your own:
+
+* cscript_simplec - Runs gcc on C code with -O3 option (or use CCOPTS
+* cscript_simplecpp - Same as simplec, but use g++
+* cscript_makefile - Runs makefile (e.g., example.c.make)

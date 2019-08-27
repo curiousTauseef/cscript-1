@@ -1,0 +1,10 @@
+export SCRIPT_NAME="$(mktemp)"
+export SCRIPT_OUT_NAME="$0.bin"
+tail -n +2 "$0" >"$SCRIPT_NAME"
+if ! make -f "$0.make"
+then
+   rm "$SCRIPT_NAME"
+   exit 999
+fi
+rm "$SCRIPT_NAME"
+exec "$SCRIPT_OUT_NAME"
