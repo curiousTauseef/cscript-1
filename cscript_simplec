@@ -1,6 +1,6 @@
 if [ "$0" -nt "$0.bin" ]
 then
-   CCOPTS="${CCOPTS:-f--O3}"
+   CCOPTS="${CCOPTS:--O3}"
    if ! tail -n +2 "$0" | gcc -x c "${CCOPTS}" -o "$0.bin" -
    then
       echo Compile Error on $0
